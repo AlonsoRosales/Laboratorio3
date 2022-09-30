@@ -8,6 +8,7 @@ public class Mascota implements Serializable {
     private String nombreDuenho = null;
     private String DNI = null;
     private String descripcion = null;
+    private String ruta;
 
     public String getNombre() {
         return nombre;
@@ -55,5 +56,13 @@ public class Mascota implements Serializable {
         this.nombreDuenho = nombreDuenho;
         this.DNI = DNI;
         this.descripcion = descripcion;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
     }
 }
