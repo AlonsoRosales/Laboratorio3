@@ -45,7 +45,7 @@ public class ListaHistorialAdapter extends RecyclerView.Adapter<ListaHistorialAd
     @Override
     public HistorialViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_historial, parent, false);
-        return null;
+        return new HistorialViewHolder(itemView);
     }
 
     @Override
