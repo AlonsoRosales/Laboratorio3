@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_Historial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="157dp"
@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_Emergencia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
@@ -40,7 +40,7 @@
         android:layout_marginEnd="159dp"
         android:layout_marginBottom="34dp"
         android:text="Emergencia"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/button_Historial"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_registro"
