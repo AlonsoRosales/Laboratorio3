@@ -28,6 +28,8 @@ public class Historialctivity extends AppCompatActivity {
         listaMascotas.add(mascota2);
         listaMascotas.add(mascota3);
         listaMascotas.add(mascota4);
+        Mascota mascota5 = new Mascota("Dash", "Masculino", "Alonso", "25855489", "Intoxicación");
+        listaMascotas.add(mascota5);
 
         adapter.setListaMascotas(listaMascotas);
         adapter.setContext(Historialctivity.this);
