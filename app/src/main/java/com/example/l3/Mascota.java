@@ -48,4 +48,12 @@ public class Mascota implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public Mascota(String nombre, String genero, String nombreDuenho, String DNI, String descripcion) {
+        this.nombre = nombre;
+        this.genero = genero;
+        this.nombreDuenho = nombreDuenho;
+        this.DNI = DNI;
+        this.descripcion = descripcion;
+    }
 }
