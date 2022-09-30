@@ -6,8 +6,8 @@
 
     <TextView
         android:id="@+id/item_mascota"
-        android:layout_width="278dp"
-        android:layout_height="123dp"
+        android:layout_width="347dp"
+        android:layout_height="214dp"
         android:layout_marginStart="16dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
