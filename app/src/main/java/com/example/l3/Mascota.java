@@ -1,20 +1,20 @@
 package com.example.l3;
 
-public class Mascota {
+import java.io.Serializable;
 
-    private String mascota;
-    private String genero;
-    private String duenio;
-    private String dni;
-    private String descripcion;
-    private String ruta;
+public class Mascota implements Serializable {
+    private String nombre = null;
+    private String genero = null;
+    private String nombreDuenho = null;
+    private String DNI = null;
+    private String descripcion = null;
 
-    public String getMascota() {
-        return mascota;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setMascota(String mascota) {
-        this.mascota = mascota;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getGenero() {
@@ -25,20 +25,20 @@ public class Mascota {
         this.genero = genero;
     }
 
-    public String getDuenio() {
-        return duenio;
+    public String getNombreDuenho() {
+        return nombreDuenho;
     }
 
-    public void setDuenio(String duenio) {
-        this.duenio = duenio;
+    public void setNombreDuenho(String nombreDuenho) {
+        this.nombreDuenho = nombreDuenho;
     }
 
-    public String getDni() {
-        return dni;
+    public String getDNI() {
+        return DNI;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
     }
 
     public String getDescripcion() {
@@ -49,11 +49,11 @@ public class Mascota {
         this.descripcion = descripcion;
     }
 
-    public String getRuta() {
-        return ruta;
-    }
-
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
+    public Mascota(String nombre, String genero, String nombreDuenho, String DNI, String descripcion) {
+        this.nombre = nombre;
+        this.genero = genero;
+        this.nombreDuenho = nombreDuenho;
+        this.DNI = DNI;
+        this.descripcion = descripcion;
     }
 }

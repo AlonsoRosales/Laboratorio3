@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.212" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/nombreMascota"
         android:layout_width="167dp"
         android:layout_height="19dp"
         android:ems="10"
@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/nombreMascota"
         app:layout_constraintVertical_bias="0.116" />
 
     <TextView
@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.148" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/nombreDueno"
         android:layout_width="162dp"
         android:layout_height="20dp"
         android:ems="10"
@@ -92,7 +92,7 @@
         app:layout_constraintVertical_bias="0.198" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/dni"
         android:layout_width="161dp"
         android:layout_height="20dp"
         android:ems="10"
@@ -102,7 +102,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.595"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintTop_toBottomOf="@+id/nombreDueno"
         app:layout_constraintVertical_bias="0.191" />
 
     <TextView
@@ -118,7 +118,7 @@
         app:layout_constraintVertical_bias="0.239" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/descripcion"
         android:layout_width="165dp"
         android:layout_height="21dp"
         android:ems="10"
@@ -127,13 +127,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
+        app:layout_constraintTop_toBottomOf="@+id/dni"
         app:layout_constraintVertical_bias="0.241" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_registro"
         android:layout_width="185dp"
         android:layout_height="47dp"
+        android:onClick="devolverMascotaCreada"
         android:text="Registrar"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
