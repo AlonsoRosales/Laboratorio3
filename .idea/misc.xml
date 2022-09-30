@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Labtel/AndroidStudioProjects/Laboratorio3_2/app/src/main/res/layout/activity_main.xml" value="0.371875" />
+      </map>
+    </option>
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
         <entry key="..\:/Users/Labtel/AndroidStudioProjects/L3/app/src/main/res/layout/activity_registro.xml" value="0.371875" />
       </map>
     </option>
