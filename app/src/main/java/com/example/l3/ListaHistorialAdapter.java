@@ -9,10 +9,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class ListaHistorialAdapter extends RecyclerView.Adapter<ListaHistorialAdapter.HistorialViewHolder> {
 
-    private Mascota[] listaMascotas;
+    private ArrayList<Mascota> listaMascotas;
     private Context context;
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public ArrayList<Mascota> getListaMascotas() {
+        return listaMascotas;
+    }
+
+    public void setListaMascotas(ArrayList<Mascota> listaMascotas) {
+        this.listaMascotas = listaMascotas;
+    }
 
     public class HistorialViewHolder extends RecyclerView.ViewHolder {
         Mascota mascota;
@@ -26,13 +44,13 @@ public class ListaHistorialAdapter extends RecyclerView.Adapter<ListaHistorialAd
     @NonNull
     @Override
     public HistorialViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.item_historial, parent, false);
+        View itemView = LayoutInflater.from(getContext()).inflate(R.layout.item_historial, parent, false);
         return null;
     }
 
     @Override
     public void onBindViewHolder(@NonNull HistorialViewHolder holder, int position) {
-        Mascota mascota = listaMascotas[position];
+        Mascota mascota = getListaMascotas().get(position);
         holder.mascota = mascota;
 
         TextView textViewInfo = holder.itemView.findViewById(R.id.item_mascota);
@@ -49,7 +67,7 @@ public class ListaHistorialAdapter extends RecyclerView.Adapter<ListaHistorialAd
 
     @Override
     public int getItemCount() {
-        return listaMascotas.length;
+        return getListaMascotas().size();
     }
 
 }
