@@ -18,12 +18,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent1 = getIntent();
-        for (Object obj : listaMascota.getListaMascotas()){
-            Mascota mascota = (Mascota) obj;
-            System.out.println(mascota.getNombre());
-        }
+
         if (intent1.hasExtra("lista")){
             listaMascota = (Lista) intent1.getSerializableExtra("lista");
+
+            for (Object obj : listaMascota.getListaMascotas()){
+                Mascota mascota = (Mascota) obj;
+                System.out.println("-----------------------------");
+                System.out.println(mascota.getNombre());
+                System.out.println(mascota.getGenero());
+                System.out.println(mascota.getNombreDuenho());
+                System.out.println(mascota.getDNI());
+                System.out.println(mascota.getDescripcion());
+            }
+
         }
         Button buttonRegistro = findViewById(R.id.button_registro);
         Button buttonEmergencia = findViewById(R.id.button_Emergencia);
