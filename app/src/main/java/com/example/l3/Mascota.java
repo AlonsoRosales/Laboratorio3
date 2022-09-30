@@ -1,0 +1,51 @@
+package com.example.l3;
+
+import java.io.Serializable;
+
+public class Mascota implements Serializable {
+    private String nombre = null;
+    private String genero = null;
+    private String nombreDuenho = null;
+    private String DNI = null;
+    private String descripcion = null;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getNombreDuenho() {
+        return nombreDuenho;
+    }
+
+    public void setNombreDuenho(String nombreDuenho) {
+        this.nombreDuenho = nombreDuenho;
+    }
+
+    public String getDNI() {
+        return DNI;
+    }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+}
