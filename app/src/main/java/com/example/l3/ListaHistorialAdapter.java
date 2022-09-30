@@ -38,10 +38,10 @@ public class ListaHistorialAdapter extends RecyclerView.Adapter<ListaHistorialAd
         TextView textViewInfo = holder.itemView.findViewById(R.id.item_mascota);
         //Crear el string y adjuntarlo a la vista
         String infoMascota =
-                        "Mascota: " + mascota.getMascota() + "\n" +
+                        "Mascota: " + mascota.getNombre() + "\n" +
                         "Género: " + mascota.getGenero() + "\n" +
-                        "Dueño: " + mascota.getDuenio() + "\n" +
-                        "DNI: " + mascota.getDni() + "\n" +
+                        "Dueño: " + mascota.getNombreDuenho() + "\n" +
+                        "DNI: " + mascota.getDNI() + "\n" +
                         "Descripción: " + mascota.getDescripcion() + "\n" +
                         "Ruta: " + mascota.getRuta();
         textViewInfo.setText(infoMascota);
