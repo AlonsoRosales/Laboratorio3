@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.l3.Entity.Mascota;
+
 import java.util.ArrayList;
 
 public class ListaHistorialAdapter extends RecyclerView.Adapter<ListaHistorialAdapter.HistorialViewHolder> {
@@ -53,7 +55,10 @@ public class ListaHistorialAdapter extends RecyclerView.Adapter<ListaHistorialAd
         Mascota mascota = getListaMascotas().get(position);
         holder.mascota = mascota;
 
-        TextView textViewInfo = holder.itemView.findViewById(R.id.item_historial);
+        TextView textViewInfo = holder.itemView.findViewById(R.id.item_mascota);
+        if (position%2 != 0) {
+            textViewInfo.setBackgroundColor(0xFFC5C5C5);
+        }
         //Crear el string y adjuntarlo a la vista
         String infoMascota =
                         "Mascota: " + mascota.getNombre() + "\n" +
@@ -61,7 +66,7 @@ public class ListaHistorialAdapter extends RecyclerView.Adapter<ListaHistorialAd
                         "Dueño: " + mascota.getNombreDuenho() + "\n" +
                         "DNI: " + mascota.getDNI() + "\n" +
                         "Descripción: " + mascota.getDescripcion() + "\n" +
-                        "Ruta: " + mascota.getRuta();
+                        "Ruta: " + ((mascota.getRuta() == null || mascota.getRuta().equals("")) ? "-" : mascota.getRuta());
         textViewInfo.setText(infoMascota);
     }
 

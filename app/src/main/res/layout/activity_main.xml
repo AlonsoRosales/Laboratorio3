@@ -8,11 +8,9 @@
 
     <Button
         android:id="@+id/button_registro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
+        android:layout_width="154dp"
+        android:layout_height="52dp"
         android:layout_marginTop="212dp"
-        android:layout_marginEnd="159dp"
         android:text="Registro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,30 +18,26 @@
 
     <Button
         android:id="@+id/button_Historial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="157dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="264dp"
+        android:layout_width="154dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginBottom="212dp"
         android:text="Historial"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/button_Emergencia"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/button_Emergencia"
+        app:layout_constraintTop_toBottomOf="@+id/button_Emergencia" />
 
     <Button
         android:id="@+id/button_Emergencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="34dp"
+        android:layout_width="154dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="72dp"
         android:text="Emergencia"
-        app:layout_constraintBottom_toTopOf="@+id/button_Historial"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_registro"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintEnd_toEndOf="@+id/button_registro"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button_registro"
+        app:layout_constraintTop_toBottomOf="@+id/button_registro" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
