@@ -23,7 +23,7 @@ import java.util.Locale;
 public class EmergencyActivity extends AppCompatActivity {
 
     Lista listaEnviada;
-    //ArrayList<Mascota> listaMascotas = new ArrayList<>();
+    ArrayList<Mascota> listaMascotas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,25 +31,80 @@ public class EmergencyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_emergency);
         getSupportActionBar().setTitle("Ambulancias Mascotín");
         listaEnviada = (Lista) getIntent().getSerializableExtra("lista");
-        //Al momento de establecer la ruta, se debe tambien indicar el dni del dueño para vincular la ruta con la mascota
-        //Actualizar de la listaEnviada.getListaMascotas() la ruta de la mascota
+        for (Object o : listaEnviada.getListaMascotas()) {
+            listaMascotas.add((Mascota) o);
+        }
     }
 
     public void procesarDirección(View view){
 
         EditText etDest = findViewById(R.id.etDestino);
+        EditText etOrig = findViewById(R.id.etOrigen);
+        EditText etDNI = findViewById(R.id.etDNI);
 
-        Geocoder geocoder = new Geocoder(EmergencyActivity.this, Locale.US);
-        try {
-            Address direccion = geocoder.getFromLocationName(etDest.getText().toString(),1).get(0);
+        //Se validan los datos ingresados
+        Boolean datosValidos = true;
+        Boolean dniEncontrado = false;
+        if (etDest.getText().toString() == null || etDest.getText().toString().equals("")) {
+            etDest.setError("Ingrese el destino");
+            datosValidos = false;
+        } else if (!etDest.getText().toString().equalsIgnoreCase("Lince") && !etDest.getText().toString().equalsIgnoreCase("San Isidro") && !etDest.getText().toString().equalsIgnoreCase("Magdalena") && !etDest.getText().toString().equalsIgnoreCase("Jesús María")) {
+            etDest.setError("Destino no válido");
+            datosValidos = false;
+        }
+        if (etOrig.getText().toString() == null || etOrig.getText().toString().equals("")) {
+            etOrig.setError("Ingrese el origen");
+            datosValidos = false;
+        } else if (!etOrig.getText().toString().equalsIgnoreCase("Lince")) {
+            etOrig.setError("Origen no válido");
+            datosValidos = false;
+        }
+        if (etDNI.getText().toString() == null || etDNI.getText().toString().equals("")) {
+            etDNI.setError("Ingrese el DNI del dueño");
+            datosValidos = false;
+        } else if (listaMascotas.isEmpty()) {
+            etDNI.setError("No se han registrado mascotas aún");
+            datosValidos = false;
+        } else if (etDNI.getText().toString().length() != 8) {
+            etDNI.setError("El dni debe tener una longitud de 8 caracteres");
+            datosValidos = false;
+        } else {
+            for (Mascota m : listaMascotas) {
+                if (m.getDNI().equals(etDNI.getText().toString())) {
+                    dniEncontrado = true;
+                }
+            }
+            if (!dniEncontrado) {
+                etDNI.setError("El DNI ingresado no es válido");
+                datosValidos = false;
+            }
+            try {
+                int dni_numeros = Integer.parseInt(etDNI.getText().toString());
+            } catch (NumberFormatException e) {
+                etDNI.setError("El dni debe consistir únicamente de números");
+                datosValidos = false;
+            }
+        }
 
-            double longDest = direccion.getLongitude();
-            double latDest = direccion.getLatitude();
-
-            Log.d("direccion","Long: "+longDest+" | Lat: "+latDest);
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (datosValidos) {
+            //Se vincula la ruta con la mascota
+            for (Mascota m : listaMascotas) {
+                if (m.getDNI().equals(etDNI.getText().toString())) {
+                    m.setRuta(etOrig.getText().toString() + " - " + etDest.getText().toString());
+                }
+            }
+//            Geocoder geocoder = new Geocoder(EmergencyActivity.this, Locale.US);
+//            try {
+//                Address direccion = geocoder.getFromLocationName(etDest.getText().toString(),1).get(0);
+//
+//                double longDest = direccion.getLongitude();
+//                double latDest = direccion.getLatitude();
+//
+//                Log.d("direccion","Long: "+longDest+" | Lat: "+latDest);
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
 
     }
