@@ -28,6 +28,7 @@
         android:ems="10"
         android:hint="Ingresar origen"
         android:inputType="none|text"
+        android:text="Av. Militar 2026, Lince 15046"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

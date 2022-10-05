@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.l3.Entity.Lista;
 import com.example.l3.Entity.Mascota;
@@ -42,7 +43,7 @@ public class EmergencyActivity extends AppCompatActivity {
         EditText etOrig = findViewById(R.id.etOrigen);
         EditText etDNI = findViewById(R.id.etDNI);
 
-        //Se validan los datos ingresados
+        // Se validan los datos ingresados
         Boolean datosValidos = true;
         Boolean dniEncontrado = false;
         if (etDest.getText().toString() == null || etDest.getText().toString().equals("")) {
@@ -87,24 +88,63 @@ public class EmergencyActivity extends AppCompatActivity {
         }
 
         if (datosValidos) {
-            //Se vincula la ruta con la mascota
+            // Se vincula la ruta con la mascota
             for (Mascota m : listaMascotas) {
                 if (m.getDNI().equals(etDNI.getText().toString())) {
                     m.setRuta(etOrig.getText().toString() + " - " + etDest.getText().toString());
                 }
             }
-//            Geocoder geocoder = new Geocoder(EmergencyActivity.this, Locale.US);
-//            try {
-//                Address direccion = geocoder.getFromLocationName(etDest.getText().toString(),1).get(0);
-//
-//                double longDest = direccion.getLongitude();
-//                double latDest = direccion.getLatitude();
-//
-//                Log.d("direccion","Long: "+longDest+" | Lat: "+latDest);
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+            Geocoder geocoder = new Geocoder(EmergencyActivity.this, Locale.US);
+            try {
+                Address direccion = geocoder.getFromLocationName(etDest.getText().toString(),1).get(0);
+
+                // Usados para implementar el mapa
+                double longDest = direccion.getLongitude();
+                double latDest = direccion.getLatitude();
+
+                // Usado para hallar la ciudad
+                String distrito = direccion.getLocality();
+                Log.d("direccion", distrito);
+
+                int minutos = 0;
+                switch (distrito) {
+                    case "Lince":
+                        minutos = 10;
+                        break;
+                    case "San Isidro":
+                        minutos = 15;
+                        break;
+                    case "Magdalena":
+                        minutos = 20;
+                        break;
+                    case "Jesús María":
+                        minutos = 25;
+                }
+
+                TextView tvContador = findViewById(R.id.contador);
+                int cuenta_min = minutos;
+                int cuenta_seg = 0;
+
+                for(int ii = minutos; ii > 0; ii--) {
+                    for(int jj = 60; jj > 0; jj--) {
+                        try {
+                            Thread.sleep(1000);
+                            if(--cuenta_seg < 0) {
+                                cuenta_seg = 59;
+                                cuenta_min--;
+                            }
+
+                            tvContador.setText(cuenta_min + ":" + (cuenta_seg < 10 ? "0"+cuenta_seg : cuenta_seg));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
